@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta name="viewPort" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<script src="jquery-3.4.1.js"></script>
+		<script src="nbridge.js"></script>
+		<script src="preferenceBridge.js"></script>
+		<script type="text/javascript">
+			/*NBRIDGE*/
+			function platform() {
+				alert('platform : ' + nbridge.platform());
+			}
+			/*PREFERENCE*/
+			function get() {
+				nbridge.preference.get('key', 'defaultValue').then(function(value) {
+					alert('value : ' + value);
+				});
+			}
+			function set() {
+				nbridge.preference.set('key', 'value');
+			}
+			function remove() {
+				nbridge.preference.remove('key');
+			}
+		</script>
+	</head>
+	<body>
+		<h2 align="center">PREFERENCE</h2>
+		<p align="center">
+			<button style="width:80%; height:40%;" onclick="get()">GET</button><br></br>
+			<button style="width:80%; height:40%;" onclick="set()">SET</button><br></br>
+			<button style="width:80%; height:40%;" onclick="remove()">REMOVE</button><br></br>
+		</p>
+	</body>
+</html>

@@ -1,0 +1,419 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8C25C646281284ED0021A869 /* WKBridgeKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C25C645281284ED0021A869 /* WKBridgeKit.swift */; };
+		8C25C692281294B00021A869 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C25C676281294AF0021A869 /* Logger.swift */; };
+		8C25C693281294B00021A869 /* BridgeWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C25C677281294B00021A869 /* BridgeWebViewController.swift */; };
+		8C25C69B281294B00021A869 /* PluginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C25C682281294B00021A869 /* PluginManager.swift */; };
+		8C25C69E281294B00021A869 /* PreferencePlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C25C685281294B00021A869 /* PreferencePlugin.swift */; };
+		8C25C6A0281294B00021A869 /* PluginBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C25C688281294B00021A869 /* PluginBase.swift */; };
+		8C25C6A5281294B00021A869 /* PreferenceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C25C68F281294B00021A869 /* PreferenceHelper.swift */; };
+		8C25C6AA28129B180021A869 /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 8C25C6A928129B180021A869 /* KeychainAccess */; settings = {ATTRIBUTES = (Weak, ); }; };
+		8C25C6AD28129BB50021A869 /* Reachability in Frameworks */ = {isa = PBXBuildFile; productRef = 8C25C6AC28129BB50021A869 /* Reachability */; settings = {ATTRIBUTES = (Weak, ); }; };
+		8C25C6B028129C880021A869 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 8C25C6AF28129C880021A869 /* SwiftyJSON */; settings = {ATTRIBUTES = (Weak, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		8C25C640281284EC0021A869 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		8C25C642281284EC0021A869 /* libWKBridgeKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libWKBridgeKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		8C25C645281284ED0021A869 /* WKBridgeKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKBridgeKit.swift; sourceTree = "<group>"; };
+		8C25C676281294AF0021A869 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		8C25C677281294B00021A869 /* BridgeWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BridgeWebViewController.swift; sourceTree = "<group>"; };
+		8C25C682281294B00021A869 /* PluginManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PluginManager.swift; sourceTree = "<group>"; };
+		8C25C685281294B00021A869 /* PreferencePlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencePlugin.swift; sourceTree = "<group>"; };
+		8C25C688281294B00021A869 /* PluginBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PluginBase.swift; sourceTree = "<group>"; };
+		8C25C68F281294B00021A869 /* PreferenceHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferenceHelper.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8C25C63F281284EC0021A869 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8C25C6B028129C880021A869 /* SwiftyJSON in Frameworks */,
+				8C25C6AA28129B180021A869 /* KeychainAccess in Frameworks */,
+				8C25C6AD28129BB50021A869 /* Reachability in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8C25C639281284EC0021A869 = {
+			isa = PBXGroup;
+			children = (
+				8C25C644281284EC0021A869 /* WKBridgeKit */,
+				8C25C643281284EC0021A869 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		8C25C643281284EC0021A869 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8C25C642281284EC0021A869 /* libWKBridgeKit.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8C25C644281284EC0021A869 /* WKBridgeKit */ = {
+			isa = PBXGroup;
+			children = (
+				8C25C677281294B00021A869 /* BridgeWebViewController.swift */,
+				8C25C6B128129F9C0021A869 /* Common */,
+				8C25C675281294AF0021A869 /* Log */,
+				8C25C67D281294B00021A869 /* Plugin */,
+				8C25C645281284ED0021A869 /* WKBridgeKit.swift */,
+			);
+			path = WKBridgeKit;
+			sourceTree = "<group>";
+		};
+		8C25C675281294AF0021A869 /* Log */ = {
+			isa = PBXGroup;
+			children = (
+				8C25C676281294AF0021A869 /* Logger.swift */,
+			);
+			path = Log;
+			sourceTree = "<group>";
+		};
+		8C25C67D281294B00021A869 /* Plugin */ = {
+			isa = PBXGroup;
+			children = (
+				8C25C687281294B00021A869 /* Base */,
+				8C25C681281294B00021A869 /* Manager */,
+				8C25C685281294B00021A869 /* PreferencePlugin.swift */,
+			);
+			path = Plugin;
+			sourceTree = "<group>";
+		};
+		8C25C681281294B00021A869 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				8C25C682281294B00021A869 /* PluginManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		8C25C687281294B00021A869 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				8C25C688281294B00021A869 /* PluginBase.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		8C25C6B128129F9C0021A869 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				8C25C68F281294B00021A869 /* PreferenceHelper.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8C25C641281284EC0021A869 /* WKBridgeKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8C25C649281284ED0021A869 /* Build configuration list for PBXNativeTarget "WKBridgeKit" */;
+			buildPhases = (
+				8C25C63E281284EC0021A869 /* Sources */,
+				8C25C63F281284EC0021A869 /* Frameworks */,
+				8C25C640281284EC0021A869 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WKBridgeKit;
+			packageProductDependencies = (
+				8C25C6A928129B180021A869 /* KeychainAccess */,
+				8C25C6AC28129BB50021A869 /* Reachability */,
+				8C25C6AF28129C880021A869 /* SwiftyJSON */,
+			);
+			productName = WKBridgeKit;
+			productReference = 8C25C642281284EC0021A869 /* libWKBridgeKit.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8C25C63A281284EC0021A869 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1330;
+				LastUpgradeCheck = 1330;
+				TargetAttributes = {
+					8C25C641281284EC0021A869 = {
+						CreatedOnToolsVersion = 13.3.1;
+					};
+				};
+			};
+			buildConfigurationList = 8C25C63D281284EC0021A869 /* Build configuration list for PBXProject "WKBridgeKit" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 8C25C639281284EC0021A869;
+			packageReferences = (
+				8C25C6A828129B180021A869 /* XCRemoteSwiftPackageReference "KeychainAccess" */,
+				8C25C6AB28129BB50021A869 /* XCRemoteSwiftPackageReference "Reachability.swift" */,
+				8C25C6AE28129C880021A869 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+			);
+			productRefGroup = 8C25C643281284EC0021A869 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8C25C641281284EC0021A869 /* WKBridgeKit */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8C25C63E281284EC0021A869 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8C25C6A0281294B00021A869 /* PluginBase.swift in Sources */,
+				8C25C693281294B00021A869 /* BridgeWebViewController.swift in Sources */,
+				8C25C646281284ED0021A869 /* WKBridgeKit.swift in Sources */,
+				8C25C69B281294B00021A869 /* PluginManager.swift in Sources */,
+				8C25C692281294B00021A869 /* Logger.swift in Sources */,
+				8C25C69E281294B00021A869 /* PreferencePlugin.swift in Sources */,
+				8C25C6A5281294B00021A869 /* PreferenceHelper.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		8C25C647281284ED0021A869 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		8C25C648281284ED0021A869 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8C25C64A281284ED0021A869 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6WP6473ZA5;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8C25C64B281284ED0021A869 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6WP6473ZA5;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8C25C63D281284EC0021A869 /* Build configuration list for PBXProject "WKBridgeKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8C25C647281284ED0021A869 /* Debug */,
+				8C25C648281284ED0021A869 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8C25C649281284ED0021A869 /* Build configuration list for PBXNativeTarget "WKBridgeKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8C25C64A281284ED0021A869 /* Debug */,
+				8C25C64B281284ED0021A869 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		8C25C6A828129B180021A869 /* XCRemoteSwiftPackageReference "KeychainAccess" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kishikawakatsumi/KeychainAccess";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		8C25C6AB28129BB50021A869 /* XCRemoteSwiftPackageReference "Reachability.swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ashleymills/Reachability.swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		8C25C6AE28129C880021A869 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		8C25C6A928129B180021A869 /* KeychainAccess */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8C25C6A828129B180021A869 /* XCRemoteSwiftPackageReference "KeychainAccess" */;
+			productName = KeychainAccess;
+		};
+		8C25C6AC28129BB50021A869 /* Reachability */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8C25C6AB28129BB50021A869 /* XCRemoteSwiftPackageReference "Reachability.swift" */;
+			productName = Reachability;
+		};
+		8C25C6AF28129C880021A869 /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8C25C6AE28129C880021A869 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 8C25C63A281284EC0021A869 /* Project object */;
+}
