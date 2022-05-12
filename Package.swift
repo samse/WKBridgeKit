@@ -24,7 +24,7 @@ let package = Package(
         .package(
             name:"Reachability",
             url: "https://github.com/ashleymills/Reachability.swift.git",
-            .exact("5.10"))
+            .exact("5.1.0"))
     ],
     targets: [
         .target(name: "WKBridgeKit",
