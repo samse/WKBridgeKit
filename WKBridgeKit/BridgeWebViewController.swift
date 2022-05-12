@@ -78,20 +78,21 @@ open class BridgeWebViewController : UIViewController {
        sender.endRefreshing()
    }
     
-    /// 플러그인 등록
+    /// add Plugins
     open func initPlugins() {
         pluginManager = PluginManager()
         pluginManager?.addPlugin(service: "preference", plugin: PreferencePlugin(service: "preference", viewController: self))
+        pluginManager?.addPlugin(service: "location", plugin: GeoLocationPlugin(service: "location", viewController: self))
     }
     
-    /// 노티피케이션 등록
+    /// init lifecycle notifications
     open func initNotifications() {
         NotificationCenter.default.addObserver(self, selector:#selector(onResume), name:UIApplication.willEnterForegroundNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector:#selector(onPause), name:UIApplication.didEnterBackgroundNotification, object: nil)
     }
     
-    /// URL 로드
-    /// - Parameter targetUrl: 로드할 URL
+    /// load specified url
+    /// - Parameter targetUrl: URL to load
     open func loadUrl(_ targetUrl: URL? = nil) {
         guard let url = targetUrl else {
             if let url = self.url {
@@ -102,7 +103,7 @@ open class BridgeWebViewController : UIViewController {
         self.webView?.load(URLRequest(url: url))
     }
     
-    /// 저장된 URL 로드
+    /// load pending URL
     open func loadPendedUrl() {
         if let url = pendedUrl {
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
@@ -112,7 +113,7 @@ open class BridgeWebViewController : UIViewController {
         }
     }
     
-    /// URL 유효성 체크
+    /// verify URL
     /// - Returns: URL String
     open func verifyUrl (urlString: String?) -> Bool {
         if let urlString = urlString {
@@ -123,27 +124,26 @@ open class BridgeWebViewController : UIViewController {
         return false
     }
     
-    /// 스플래시 표시
+    /// show splash screen
     open func presentSplash() {
             if let launchView = launchScreen?.view {
                 view?.addSubview(launchView)
             }
         }
     
-    /// 스플래시 제거
+    /// close splash screen
     open func dismissSplash() {
         if let launchView = launchScreen?.view {
             launchView.removeFromSuperview()
         }
     }
     
-    /// 오류 페이지 이동
+    /// load error page when failed loading page
     open func loadErrorPage() {
         onBridgeReady()
-//        LoadingViewController.hide()
     }
     
-    /// 화면 전환
+    ///
     open func changeOrientation() {
     }
 
@@ -160,20 +160,18 @@ open class BridgeWebViewController : UIViewController {
 }
 
 extension BridgeWebViewController {
-    /// 앱이 백그라운드로 전환 시 호출
     @objc func onPause() {
-        let js = "wkbridge.callPauseListener()"
+        let js = "nbridge.callPauseListener()"
         evaluateJavaScript(js)
     }
     
-    /// 앱이 포그라운드로 복귀 시 호출
     @objc func onResume() {
-        let js = "wkridge.callResumeListener()"
+        let js = "nbridge.callResumeListener()"
         evaluateJavaScript(js)
     }
     
-    /// 스크립트 호출
-    /// - Parameter js: 스크립트
+    /// call javascript to WKWebView
+    /// - Parameter js: script to call
     @objc open func evaluateJavaScript(_ js: String) {
         DispatchQueue.main.async {
             self.webView?.evaluateJavaScript(js)
@@ -193,19 +191,19 @@ extension BridgeWebViewController {
     }
     
     func onPromiseResolve(promiseId: String, result: String?) {
-        let js = "wkbridge.resolvePromise(\"\(promiseId)\", \(result ?? "{}"), null);"
+        let js = "nbridge.resolvePromise(\"\(promiseId)\", \(result ?? "{}"), null);"
         Logger.debug(js)
         evaluateJavaScript(js)
     }
     
     func onPromiseFinallyResolve(promiseId: String, result: String?) {
-        let js = "wkbridge.finallyResolvePromise(\"\(promiseId)\", \(result ?? "{}"), null);"
+        let js = "nbridge.finallyResolvePromise(\"\(promiseId)\", \(result ?? "{}"), null);"
         Logger.debug(js)
         evaluateJavaScript(js)
     }
     
     func onPromiseReject(promiseId: String, result: String?) {
-        let js = "wkbridge.resolvePromise(\"\(promiseId)\", \(result ?? "{}"), {});"
+        let js = "nbridge.resolvePromise(\"\(promiseId)\", \(result ?? "{}"), {});"
         Logger.debug(js)
         evaluateJavaScript(js)
     }
@@ -244,7 +242,7 @@ extension BridgeWebViewController:  WKNavigationDelegate {
         }
     }
     
-    /// 중복 리로드 방지
+    /// prevent duplicated reload
     open func webViewWebContentProcessDidTerminate(_ webView: WKWebView) {
         webView.reload()
     }
@@ -300,7 +298,13 @@ extension BridgeWebViewController: WKScriptMessageHandler {
                         }
                     }
                     if let service = command[PluginBase.SERVICE] as? String {
-                        pluginManager?.findPlugin(service: service)?.execute(command: command)
+                        if let plugin = pluginManager?.findPlugin(service: service) {
+                            plugin.execute(command: command)
+                        } else {
+                            if let promiseId = command[PluginBase.PROMISEID] as? String {
+                                PluginBase(service: "PluginBase", viewController: self).invalidServiceError(promiseId)
+                            }
+                        }
                     }
                 }
             } catch let error as NSError {

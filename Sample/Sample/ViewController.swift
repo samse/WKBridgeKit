@@ -13,7 +13,10 @@ class ViewController: BridgeWebViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        self.loadUrl(URL.init(string: "https://www.google.com"))
+//        let urlPath = Bundle.main.path(forResource: "sample", ofType: "html")
+//        let url = NSURL.fileURL(withPath: urlPath!)
+//        self.loadUrl(url)
+        self.loadUrl(URL(string: "https://www.ntoworks.com/app/nbridge/v2/sample.html"))
         self.dismissSplash()
     }
 

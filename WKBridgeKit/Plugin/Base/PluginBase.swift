@@ -15,6 +15,7 @@ open class PluginBase: NSObject {
     static let OPTION =     "option"
     
     public struct ErrorMessage {
+        static let invalidService =           "invalid_service"
         static let invalidParam =           "invalid_parameter"
         static let invalidAction =          "invalid_action_name"
         static let undefinedEmail =         "undefined_email"
@@ -38,6 +39,11 @@ open class PluginBase: NSObject {
     }
     
     func execute(command: [String : Any]) {}
+    
+    open func invalidServiceError(_ promiseId: String?) {
+        Logger.error("Invalid Service Error")
+        sendErrorResult(promiseId, message: ErrorMessage.invalidService)
+    }
     
     open func invalidParamError(_ promiseId: String?) {
         Logger.error("Invalid Param Error")
