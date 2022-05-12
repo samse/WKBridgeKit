@@ -12,9 +12,9 @@ let package = Package(
                  targets: ["WKBridgeKit"])
     ],
     dependencies: [
-        .package(name:"KeychainAccess", url: "https://github.com/kishikawakatsumi/KeychainAccess.git", from: "4.2.2"),
-        .package(name:"SwiftyJSON", url: "https://github.com/SwiftyJSON/SwiftyJSON.git", from: "5.0.1"),
-        .package(name:"Reachability", url: "https://github.com/ashleymills/Reachability.swift.git", from: "5.10")
+        .package(name:"KeychainAccess", url: "https://github.com/kishikawakatsumi/KeychainAccess.git", exact("4.2.2"),
+        .package(name:"SwiftyJSON", url: "https://github.com/SwiftyJSON/SwiftyJSON.git", exact("5.0.1")),
+        .package(name:"Reachability", url: "https://github.com/ashleymills/Reachability.swift.git", exact("5.10"))
     ],
     targets: [
         .target(name: "WKBridgeKit",
