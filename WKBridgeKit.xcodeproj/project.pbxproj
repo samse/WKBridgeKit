@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		8C25C646281284ED0021A869 /* WKBridgeKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C25C645281284ED0021A869 /* WKBridgeKit.swift */; };
-		8C25C692281294B00021A869 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C25C676281294AF0021A869 /* Logger.swift */; };
 		8C25C693281294B00021A869 /* BridgeWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C25C677281294B00021A869 /* BridgeWebViewController.swift */; };
 		8C25C69B281294B00021A869 /* PluginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C25C682281294B00021A869 /* PluginManager.swift */; };
 		8C25C69E281294B00021A869 /* PreferencePlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C25C685281294B00021A869 /* PreferencePlugin.swift */; };
@@ -36,7 +35,6 @@
 /* Begin PBXFileReference section */
 		8C25C642281284EC0021A869 /* libWKBridgeKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libWKBridgeKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C25C645281284ED0021A869 /* WKBridgeKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKBridgeKit.swift; sourceTree = "<group>"; };
-		8C25C676281294AF0021A869 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		8C25C677281294B00021A869 /* BridgeWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BridgeWebViewController.swift; sourceTree = "<group>"; };
 		8C25C682281294B00021A869 /* PluginManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PluginManager.swift; sourceTree = "<group>"; };
 		8C25C685281294B00021A869 /* PreferencePlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencePlugin.swift; sourceTree = "<group>"; };
@@ -81,19 +79,10 @@
 			children = (
 				8C25C677281294B00021A869 /* BridgeWebViewController.swift */,
 				8C25C6B128129F9C0021A869 /* Common */,
-				8C25C675281294AF0021A869 /* Log */,
 				8C25C67D281294B00021A869 /* Plugin */,
 				8C25C645281284ED0021A869 /* WKBridgeKit.swift */,
 			);
 			path = WKBridgeKit;
-			sourceTree = "<group>";
-		};
-		8C25C675281294AF0021A869 /* Log */ = {
-			isa = PBXGroup;
-			children = (
-				8C25C676281294AF0021A869 /* Logger.swift */,
-			);
-			path = Log;
 			sourceTree = "<group>";
 		};
 		8C25C67D281294B00021A869 /* Plugin */ = {
@@ -204,7 +193,6 @@
 				8C25C693281294B00021A869 /* BridgeWebViewController.swift in Sources */,
 				8C25C646281284ED0021A869 /* WKBridgeKit.swift in Sources */,
 				8C25C69B281294B00021A869 /* PluginManager.swift in Sources */,
-				8C25C692281294B00021A869 /* Logger.swift in Sources */,
 				8C520759282CD1FA001B22FD /* GeoLocationPlugin.swift in Sources */,
 				8C52075B282CD31C001B22FD /* LocationHelper.swift in Sources */,
 				8C25C69E281294B00021A869 /* PreferencePlugin.swift in Sources */,

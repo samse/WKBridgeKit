@@ -192,19 +192,16 @@ extension BridgeWebViewController {
     
     func onPromiseResolve(promiseId: String, result: String?) {
         let js = "nbridge.resolvePromise(\"\(promiseId)\", \(result ?? "{}"), null);"
-        Logger.debug(js)
         evaluateJavaScript(js)
     }
     
     func onPromiseFinallyResolve(promiseId: String, result: String?) {
         let js = "nbridge.finallyResolvePromise(\"\(promiseId)\", \(result ?? "{}"), null);"
-        Logger.debug(js)
         evaluateJavaScript(js)
     }
     
     func onPromiseReject(promiseId: String, result: String?) {
         let js = "nbridge.resolvePromise(\"\(promiseId)\", \(result ?? "{}"), {});"
-        Logger.debug(js)
         evaluateJavaScript(js)
     }
 }
@@ -212,7 +209,6 @@ extension BridgeWebViewController {
 //MARK: WKNavigationDelegate
 extension BridgeWebViewController:  WKNavigationDelegate {
     open func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
-        Logger.request(request: navigationAction.request)
         
         let request = navigationAction.request
         // 스토어 이동
@@ -231,12 +227,10 @@ extension BridgeWebViewController:  WKNavigationDelegate {
     }
     
     open func webView(_ webView: WKWebView, decidePolicyFor navigationResponse: WKNavigationResponse, decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void) {
-        Logger.response(response: navigationResponse.response)
         decisionHandler(.allow)
     }
     
     open func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
-        Logger.error("webView::didFail : " + error.localizedDescription)
         if (error as NSError).code == NSURLErrorNotConnectedToInternet {
             self.loadErrorPage()
         }
@@ -308,7 +302,6 @@ extension BridgeWebViewController: WKScriptMessageHandler {
                     }
                 }
             } catch let error as NSError {
-                Logger.error("\(error.localizedDescription)")
             }
         }
     }

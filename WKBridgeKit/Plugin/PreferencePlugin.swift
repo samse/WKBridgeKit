@@ -31,16 +31,13 @@ open class PreferencePlugin: PluginBase {
     }
     
     open func getPreference(command: [String : Any]) {
-        Logger.debug("\(command)")
         
         let promiseId = command[PluginBase.PROMISEID] as? String
         if let option = command[PluginBase.OPTION] as? [String : Any] {
             if let key = option["key"] as? String, let defaultValue = option["defaultValue"] as? String {
                 if let value = PreferenceHelper.get(key) {
-                    Logger.info("\(value)")
                     self.sendSuccessResult(promiseId, message: value)
                 } else {
-                    Logger.info("\(defaultValue)")
                     self.sendSuccessResult(promiseId, message: defaultValue)
                 }
             } else {
@@ -52,7 +49,6 @@ open class PreferencePlugin: PluginBase {
     }
     
     open func setPreference(command: [String : Any]) {
-        Logger.debug("\(command)")
         
         let promiseId = command[PluginBase.PROMISEID] as? String
         if let option = command[PluginBase.OPTION] as? [String : Any] {
@@ -68,7 +64,6 @@ open class PreferencePlugin: PluginBase {
     }
     
     open func removePreference(command: [String : Any]) {
-        Logger.debug("\(command)")
         
         let promiseId = command[PluginBase.PROMISEID] as? String
         if let option = command[PluginBase.OPTION] as? [String : Any] {
