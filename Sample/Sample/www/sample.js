@@ -57,3 +57,24 @@ function updateLocationInfo(msg) {
     document.getElementById('loc').innerHTML = msg
 }
 
+function appAppInfo() {
+    nbridge.app.appInfo().then(function(result) {
+        alert('appInfo : ' + JSON.stringify(result));
+    }, function(error) {
+        alert('error : ' + error);
+    })
+}
+
+function appInfoDeviceInfo() {
+    nbridge.app.deviceInfo().then(function(result) {
+        alert('deviceInfo : ' + JSON.stringify(result));
+    }, function(error) {
+        alert('error : ' + error);
+    })
+}
+
+function appInfoExit() {
+    if (confirm("WKBridgeSample 앱을 종료하시겠습니까?")) {
+        nbridge.app.exit();
+    }
+}

@@ -81,6 +81,7 @@ open class BridgeWebViewController : UIViewController {
     /// add Plugins
     open func initPlugins() {
         pluginManager = PluginManager()
+        pluginManager?.addPlugin(service: "app", plugin: AppPlugin(service: "app", viewController: self))
         pluginManager?.addPlugin(service: "preference", plugin: PreferencePlugin(service: "preference", viewController: self))
         pluginManager?.addPlugin(service: "location", plugin: GeoLocationPlugin(service: "location", viewController: self))
     }

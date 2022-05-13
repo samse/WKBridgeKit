@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8C217ED6282E1D8B00F36874 /* appBridge.js in Resources */ = {isa = PBXBuildFile; fileRef = 8C217ED5282E1D8B00F36874 /* appBridge.js */; };
 		8C25C6592812850D0021A869 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C25C6582812850D0021A869 /* AppDelegate.swift */; };
 		8C25C65B2812850D0021A869 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C25C65A2812850D0021A869 /* SceneDelegate.swift */; };
 		8C25C65D2812850D0021A869 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C25C65C2812850D0021A869 /* ViewController.swift */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8C217ED5282E1D8B00F36874 /* appBridge.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = appBridge.js; sourceTree = "<group>"; };
 		8C25C6552812850D0021A869 /* Sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C25C6582812850D0021A869 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8C25C65A2812850D0021A869 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 		8C520751282CD19E001B22FD /* www */ = {
 			isa = PBXGroup;
 			children = (
+				8C217ED5282E1D8B00F36874 /* appBridge.js */,
 				8C52075E282CD91A001B22FD /* sample.js */,
 				8C52075C282CD6E2001B22FD /* sample.html */,
 				8C520754282CD1AA001B22FD /* locationBridge.js */,
@@ -160,6 +163,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C217ED6282E1D8B00F36874 /* appBridge.js in Resources */,
 				8C25C6652812850E0021A869 /* LaunchScreen.storyboard in Resources */,
 				8C25C6622812850E0021A869 /* Assets.xcassets in Resources */,
 				8C52075D282CD6E2001B22FD /* sample.html in Resources */,

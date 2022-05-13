@@ -58,6 +58,7 @@
   <script src="nbridge.js"></script>
   <script src="locationBridge.js"></script>
   <script src="preferenceBridge.js"></script>
+  <script src="appBridge.js"></script>
   <script src="sample.js"></script>
 
 </head>
@@ -79,6 +80,26 @@
 <div class="desc1"></div>
 <div class="step">
   <table>
+      <!--  App  -->
+      <tr> <td class="instructions"><b>App<b><br/></td>
+      </tr>
+      <tr> <td><font size="2px" color="#666666">nbridge.app.appInfo()</font></td>
+          <td width="100">
+              <button class="button-shortcut" onclick="appAppInfo()">appInfo</button>
+          </td>
+      </tr>
+      <tr> <td><font size="2px" color="#666666">nbridge.app.deviceInfo()</font></td>
+          <td width="100">
+              <button class="button-shortcut" onclick="appInfoDeviceInfo()">deviceInfo</button>
+          </td>
+      </tr>
+      <tr> <td><font size="2px" color="#666666">nbridge.app.exit()</font></td>
+          <td width="100">
+              <button class="button-shortcut" onclick="appInfoExit()">exit</button>
+          </td>
+      </tr>
+
+      <!--  Preference  -->
       <tr> <td class="instructions"><b>Preference<b><br/></td>
       </tr>
       <tr> <td><font size="2px" color="#666666">nbridge.preference.get('key1')</font></td>
@@ -96,6 +117,7 @@
               <button class="button-shortcut" onclick="preferenceRemove()">remove</button>
           </td>
       </tr>
+      <!--  Geolocation  -->
       <tr> <td class="instructions"><b>GeoLocation</b><p id="loc" style="font-size:10pt;"></> </td>
       </tr>
       <tr>
