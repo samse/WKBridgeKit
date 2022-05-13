@@ -41,17 +41,14 @@ open class PluginBase: NSObject {
     func execute(command: [String : Any]) {}
     
     open func invalidServiceError(_ promiseId: String?) {
-        Logger.error("Invalid Service Error")
         sendErrorResult(promiseId, message: ErrorMessage.invalidService)
     }
     
     open func invalidParamError(_ promiseId: String?) {
-        Logger.error("Invalid Param Error")
         sendErrorResult(promiseId, message: ErrorMessage.invalidParam)
     }
     
     open func invalidActionError(_ promiseId: String?) {
-        Logger.error("Invalid Action Error")
         sendErrorResult(promiseId, message: ErrorMessage.invalidAction)
     }
     
@@ -65,7 +62,7 @@ open class PluginBase: NSObject {
     
     open func sendSuccessResult(_ promiseId: String?, message: String?) {
         if let message = message, message.isEmpty == false {
-            Logger.debug("Success result: \(message)")
+            NSLog("Success result: \(message)")
         }
         guard let promiseId = promiseId else { return }
         if let message = message {
@@ -77,7 +74,7 @@ open class PluginBase: NSObject {
     
     open func sendErrorResult(_ promiseId: String?, message: String?) {
         if let message = message, message.isEmpty == false {
-            Logger.debug("Failure result: \(message)")
+            NSLog("Failure result: \(message)")
         }
         guard let promiseId = promiseId else { return }
         if let message = message {

@@ -81,26 +81,6 @@ class LocationHelper: NSObject {
         locationManager.stopUpdatingLocation()
         self.status = .idle
     }
-    
-    
-    
-    
-    
-//    func updateLocationPermission() {
-//        guard locationServicesEnabled() else {
-//            PreferenceHelper.set(Constants.Value.N, key: Constants.Key.Pref.locationPermission)
-//            return
-//        }
-//        
-//        switch authorizationStatus() {
-//        case .authorizedAlways, .authorizedWhenInUse, .authorized:
-//            PreferenceHelper.set(Constants.Value.Y, key: Constants.Key.Pref.locationAgree)
-//            PreferenceHelper.set(Constants.Value.Y, key: Constants.Key.Pref.locationPermission)
-//            
-//        default:
-//            PreferenceHelper.set(Constants.Value.N, key: Constants.Key.Pref.locationPermission)
-//        }
-//    }
 }
 
 extension LocationHelper: CLLocationManagerDelegate {
@@ -114,7 +94,6 @@ extension LocationHelper: CLLocationManagerDelegate {
             completion(status)
             self.requestCompletion = nil
         }
-//        updateLocationPermission()
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -122,7 +101,6 @@ extension LocationHelper: CLLocationManagerDelegate {
             if let location = locations.last {
                 self.lastLocation = location
             }
-            Logger.info("updated location : \(self.lastLocation.debugDescription)")
         }
 
         if let location = self.lastLocation {
@@ -137,7 +115,6 @@ extension LocationHelper: CLLocationManagerDelegate {
                     status = .idle
                 }
             }
-//            manager.stopUpdatingLocation()
         }
     }
     
