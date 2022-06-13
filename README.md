@@ -17,6 +17,15 @@ class ViewController: BridgeWebViewController {
     }
 ```
 
+Swift Package Manager (SPM)
+---------------------------
+The Swift Package Manager is a tool for automating the distribution of Swift code and is integrated into the swift compiler. To integrate using Apple's Swift package manager from xcode :
+
+File -> Swift Packages -> Add Package Dependency...
+
+Enter package URL : https://github.com/samse/WKBridgeKit
+
+
 License
 --------
 This code is distributed under the terms and conditions of the MIT license.
