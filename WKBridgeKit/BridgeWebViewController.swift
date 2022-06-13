@@ -217,7 +217,7 @@ extension BridgeWebViewController:  WKNavigationDelegate {
               !url.contains("apps.apple.com"),
               !url.contains("itunes.apple.com") else {
                 #if targetEnvironment(simulator)
-                  Logger.debug("simulator is not supported")
+                  print("simulator is not supported")
                 #else
                   UIApplication.shared.open(request.url!)
                 #endif

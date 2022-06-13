@@ -11,9 +11,10 @@ import WebKit
 import KeychainAccess
 
 class AppPlugin: PluginBase {
-    let ACTION_APP_INFO =           "appInfo"
-    let ACTION_DEVICE_INFO =        "deviceInfo"
-    let ACTION_EXIT =               "exit"
+    let ACTION_APP_INFO     = "appInfo"
+    let ACTION_DEVICE_INFO  = "deviceInfo"
+    let ACTION_EXIT         = "exit"
+    let ACTION_CLEARCACHE   = "clearCache"
     
     override func execute(command: [String : Any]) {
         let promiseId = command[PluginBase.PROMISEID] as? String
@@ -28,6 +29,8 @@ class AppPlugin: PluginBase {
             deviceInfo(promiseId: promiseId)
         } else if action == ACTION_EXIT {
             exit(command: command)
+        } else if action == ACTION_CLEARCACHE {
+            clearCache(promiseId: promiseId)
         } else {
             invalidActionError(promiseId)
         }
@@ -56,6 +59,17 @@ class AppPlugin: PluginBase {
                                                "model" : AppPlugin.model,
                                                "region" : Locale(identifier: identifier!).regionCode as Any,
                                                "language" : Locale(identifier: identifier!).languageCode?.lowercased() as Any])
+    }
+    
+    func clearCache(promiseId: String?) {
+        let websiteDataTypes = NSSet(array: [WKWebsiteDataTypeDiskCache, WKWebsiteDataTypeMemoryCache, WKWebsiteDataTypeCookies])
+        WKWebsiteDataStore.default().removeData(ofTypes: websiteDataTypes as! Set, modifiedSince: Date(), completionHandler: {
+            print("clear")
+            URLCache.shared.removeAllCachedResponses()
+            URLCache.shared.diskCapacity = 0
+            URLCache.shared.memoryCapacity = 0
+        })
+        sendDefaultSuccessResult(promiseId)
     }
     
     /// 앱 종료

@@ -6,7 +6,10 @@ nbridge.app = (function(nbridge) {
 		}, 
 		deviceInfo : function() { 
 			return nbridge.callToNative(this.service, 'deviceInfo', {});
-		}, 
+		},
+        clearCache : function() {
+            return nbridge.callToNative(this.service, 'clearCache', {});
+        },
 		exit : function() {
 			nbridge.callToNative(this.service, 'exit', {});
 		}
