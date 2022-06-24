@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		8C217ED6282E1D8B00F36874 /* appBridge.js in Resources */ = {isa = PBXBuildFile; fileRef = 8C217ED5282E1D8B00F36874 /* appBridge.js */; };
 		8C25C6592812850D0021A869 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C25C6582812850D0021A869 /* AppDelegate.swift */; };
-		8C25C65B2812850D0021A869 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C25C65A2812850D0021A869 /* SceneDelegate.swift */; };
 		8C25C65D2812850D0021A869 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C25C65C2812850D0021A869 /* ViewController.swift */; };
 		8C25C6602812850D0021A869 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C25C65E2812850D0021A869 /* Main.storyboard */; };
 		8C25C6622812850E0021A869 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C25C6612812850E0021A869 /* Assets.xcassets */; };
@@ -20,13 +19,14 @@
 		8C520757282CD1AA001B22FD /* locationBridge.js in Resources */ = {isa = PBXBuildFile; fileRef = 8C520754282CD1AA001B22FD /* locationBridge.js */; };
 		8C52075D282CD6E2001B22FD /* sample.html in Resources */ = {isa = PBXBuildFile; fileRef = 8C52075C282CD6E2001B22FD /* sample.html */; };
 		8C52075F282CD91A001B22FD /* sample.js in Resources */ = {isa = PBXBuildFile; fileRef = 8C52075E282CD91A001B22FD /* sample.js */; };
+		8CBDEE2928598170005B67FE /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBDEE2828598170005B67FE /* StringExtension.swift */; };
+		8CBDEE2B2859819F005B67FE /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBDEE2A2859819F005B67FE /* ColorExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		8C217ED5282E1D8B00F36874 /* appBridge.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = appBridge.js; sourceTree = "<group>"; };
 		8C25C6552812850D0021A869 /* Sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C25C6582812850D0021A869 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8C25C65A2812850D0021A869 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		8C25C65C2812850D0021A869 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		8C25C65F2812850D0021A869 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8C25C6612812850E0021A869 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -38,6 +38,8 @@
 		8C520754282CD1AA001B22FD /* locationBridge.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = locationBridge.js; sourceTree = "<group>"; };
 		8C52075C282CD6E2001B22FD /* sample.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = sample.html; sourceTree = "<group>"; };
 		8C52075E282CD91A001B22FD /* sample.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = sample.js; sourceTree = "<group>"; };
+		8CBDEE2828598170005B67FE /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		8CBDEE2A2859819F005B67FE /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,7 +76,8 @@
 			children = (
 				8C520751282CD19E001B22FD /* www */,
 				8C25C6582812850D0021A869 /* AppDelegate.swift */,
-				8C25C65A2812850D0021A869 /* SceneDelegate.swift */,
+				8CBDEE2828598170005B67FE /* StringExtension.swift */,
+				8CBDEE2A2859819F005B67FE /* ColorExtension.swift */,
 				8C25C65C2812850D0021A869 /* ViewController.swift */,
 				8C25C65E2812850D0021A869 /* Main.storyboard */,
 				8C25C6612812850E0021A869 /* Assets.xcassets */,
@@ -182,9 +185,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8CBDEE2928598170005B67FE /* StringExtension.swift in Sources */,
 				8C25C65D2812850D0021A869 /* ViewController.swift in Sources */,
 				8C25C6592812850D0021A869 /* AppDelegate.swift in Sources */,
-				8C25C65B2812850D0021A869 /* SceneDelegate.swift in Sources */,
+				8CBDEE2B2859819F005B67FE /* ColorExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,7 +264,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -314,7 +318,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -330,7 +334,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = 6WP6473ZA5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Sample/Info.plist;
@@ -361,7 +365,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = 6WP6473ZA5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Sample/Info.plist;
