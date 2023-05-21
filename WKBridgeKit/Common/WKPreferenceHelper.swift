@@ -7,7 +7,7 @@
 
 import Foundation
 
-class PreferenceHelper  {
+class WKPreferenceHelper  {
     static func get(_ key: String) -> String? {
         if let value = UserDefaults.standard.string(forKey: key) {
             return value

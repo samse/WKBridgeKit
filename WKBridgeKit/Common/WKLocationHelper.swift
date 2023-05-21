@@ -12,8 +12,8 @@ public enum LocationWatchingStatus: Int {
     case idle = 0, running = 1, watching = 2
 }
 
-class LocationHelper: NSObject {
-    static let shared = LocationHelper()
+class WKLocationHelper: NSObject {
+    static let shared = WKLocationHelper()
     private override init() {}
     
     private var requestCompletion: ((_ status: CLAuthorizationStatus) -> Void)?
@@ -83,7 +83,7 @@ class LocationHelper: NSObject {
     }
 }
 
-extension LocationHelper: CLLocationManagerDelegate {
+extension WKLocationHelper: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         guard status != .notDetermined else {
             manager.requestWhenInUseAuthorization()

@@ -35,7 +35,7 @@ open class PreferencePlugin: PluginBase {
         let promiseId = command[PluginBase.PROMISEID] as? String
         if let option = command[PluginBase.OPTION] as? [String : Any] {
             if let key = option["key"] as? String, let defaultValue = option["defaultValue"] as? String {
-                if let value = PreferenceHelper.get(key) {
+                if let value = WKPreferenceHelper.get(key) {
                     self.sendSuccessResult(promiseId, message: value)
                 } else {
                     self.sendSuccessResult(promiseId, message: defaultValue)
@@ -53,7 +53,7 @@ open class PreferencePlugin: PluginBase {
         let promiseId = command[PluginBase.PROMISEID] as? String
         if let option = command[PluginBase.OPTION] as? [String : Any] {
             if let key = option["key"] as? String, let value = option["value"] as? String {
-                PreferenceHelper.set(value, key: key)
+                WKPreferenceHelper.set(value, key: key)
                 self.sendDefaultSuccessResult(promiseId)
             } else {
                 self.invalidParamError(promiseId)
@@ -68,7 +68,7 @@ open class PreferencePlugin: PluginBase {
         let promiseId = command[PluginBase.PROMISEID] as? String
         if let option = command[PluginBase.OPTION] as? [String : Any] {
             if let key = option["key"] as? String {
-                PreferenceHelper.remove(key)
+                WKPreferenceHelper.remove(key)
                 self.sendDefaultSuccessResult(promiseId)
             } else {
                 self.invalidParamError(promiseId)

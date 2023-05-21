@@ -9,10 +9,10 @@ import Foundation
 import SwiftyJSON
 
 open class PluginBase: NSObject {
-    static let SERVICE =    "service"
-    static let PROMISEID =  "promiseId"
-    static let ACTION =     "action"
-    static let OPTION =     "option"
+    public static let SERVICE =    "service"
+    public static let PROMISEID =  "promiseId"
+    public static let ACTION =     "action"
+    public static let OPTION =     "option"
     
     public struct ErrorMessage {
         static let invalidService =           "invalid_service"
@@ -38,7 +38,7 @@ open class PluginBase: NSObject {
         self.viewController = viewController
     }
     
-    func execute(command: [String : Any]) {}
+    open func execute(command: [String : Any]) {}
     
     open func invalidServiceError(_ promiseId: String?) {
         sendErrorResult(promiseId, message: ErrorMessage.invalidService)

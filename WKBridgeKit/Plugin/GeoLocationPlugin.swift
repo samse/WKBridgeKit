@@ -38,7 +38,7 @@ class GeoLocationPlugin : PluginBase {
     
     func availableLocation(command: [String: Any]) {
         let promiseId = command[PluginBase.PROMISEID] as? String
-        if LocationHelper.shared.locationServicesEnabled() {
+        if WKLocationHelper.shared.locationServicesEnabled() {
             self.sendDefaultSuccessResult(promiseId)
         } else {
             self.sendDefaultErrorResult(promiseId)
@@ -47,7 +47,7 @@ class GeoLocationPlugin : PluginBase {
 
     func currentLocation(command: [String: Any]) {
         let promiseId = command[PluginBase.PROMISEID] as? String
-        let locationHelper = LocationHelper.shared
+        let locationHelper = WKLocationHelper.shared
         guard locationHelper.locationServicesEnabled() else {
             self.sendSuccessResult(promiseId, message: PluginBase.ErrorMessage.unavailableLocation)
             return
@@ -78,8 +78,8 @@ class GeoLocationPlugin : PluginBase {
     
     func getLastLocation(promiseId: String?) {
         if let promiseId = promiseId {
-            if LocationHelper.shared.status == .idle {
-                LocationHelper.shared.startUpdatingLocation { locaion in
+            if WKLocationHelper.shared.status == .idle {
+                WKLocationHelper.shared.startUpdatingLocation { locaion in
                     self.sendSuccessResult(promiseId, message: locaion)
                 }
             } else {
@@ -90,8 +90,8 @@ class GeoLocationPlugin : PluginBase {
     
     func watchLocation(command: [String: Any]) {
         if let promiseId = command[PluginBase.PROMISEID] as? String {
-            if LocationHelper.shared.status == .idle {
-                LocationHelper.shared.startWatchingLocation { location in
+            if WKLocationHelper.shared.status == .idle {
+                WKLocationHelper.shared.startWatchingLocation { location in
                     self.sendSuccessResult(promiseId, message: location)
                 }
             } else {
@@ -102,8 +102,8 @@ class GeoLocationPlugin : PluginBase {
 
     func clearWatch(command: [String: Any]) {
         if let promiseId = command[PluginBase.PROMISEID] as? String {
-            if LocationHelper.shared.status != .idle {
-                LocationHelper.shared.clearWatching()
+            if WKLocationHelper.shared.status != .idle {
+                WKLocationHelper.shared.clearWatching()
                 self.sendDefaultSuccessResult(promiseId)
             } else {
                 self.sendErrorResult(promiseId, message: "geolocation does not running")

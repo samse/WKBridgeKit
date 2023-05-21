@@ -13,12 +13,13 @@
 		8C25C69B281294B00021A869 /* PluginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C25C682281294B00021A869 /* PluginManager.swift */; };
 		8C25C69E281294B00021A869 /* PreferencePlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C25C685281294B00021A869 /* PreferencePlugin.swift */; };
 		8C25C6A0281294B00021A869 /* PluginBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C25C688281294B00021A869 /* PluginBase.swift */; };
-		8C25C6A5281294B00021A869 /* PreferenceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C25C68F281294B00021A869 /* PreferenceHelper.swift */; };
+		8C25C6A5281294B00021A869 /* WKPreferenceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C25C68F281294B00021A869 /* WKPreferenceHelper.swift */; };
 		8C25C6AA28129B180021A869 /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 8C25C6A928129B180021A869 /* KeychainAccess */; settings = {ATTRIBUTES = (Weak, ); }; };
 		8C25C6AD28129BB50021A869 /* Reachability in Frameworks */ = {isa = PBXBuildFile; productRef = 8C25C6AC28129BB50021A869 /* Reachability */; settings = {ATTRIBUTES = (Weak, ); }; };
 		8C25C6B028129C880021A869 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 8C25C6AF28129C880021A869 /* SwiftyJSON */; settings = {ATTRIBUTES = (Weak, ); }; };
 		8C520759282CD1FA001B22FD /* GeoLocationPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C520758282CD1FA001B22FD /* GeoLocationPlugin.swift */; };
-		8C52075B282CD31C001B22FD /* LocationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C52075A282CD31C001B22FD /* LocationHelper.swift */; };
+		8C52075B282CD31C001B22FD /* WKLocationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C52075A282CD31C001B22FD /* WKLocationHelper.swift */; };
+		8CEB87A42A17A5A700216E86 /* WKAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CEB87A22A17A5A700216E86 /* WKAlertViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -41,9 +42,11 @@
 		8C25C682281294B00021A869 /* PluginManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PluginManager.swift; sourceTree = "<group>"; };
 		8C25C685281294B00021A869 /* PreferencePlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencePlugin.swift; sourceTree = "<group>"; };
 		8C25C688281294B00021A869 /* PluginBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PluginBase.swift; sourceTree = "<group>"; };
-		8C25C68F281294B00021A869 /* PreferenceHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferenceHelper.swift; sourceTree = "<group>"; };
+		8C25C68F281294B00021A869 /* WKPreferenceHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WKPreferenceHelper.swift; sourceTree = "<group>"; };
 		8C520758282CD1FA001B22FD /* GeoLocationPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoLocationPlugin.swift; sourceTree = "<group>"; };
-		8C52075A282CD31C001B22FD /* LocationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationHelper.swift; sourceTree = "<group>"; };
+		8C52075A282CD31C001B22FD /* WKLocationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKLocationHelper.swift; sourceTree = "<group>"; };
+		8CEB87A22A17A5A700216E86 /* WKAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKAlertViewController.swift; sourceTree = "<group>"; };
+		8CEB87A32A17A5A700216E86 /* WKAlertViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WKAlertViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,9 +82,10 @@
 		8C25C644281284EC0021A869 /* WKBridgeKit */ = {
 			isa = PBXGroup;
 			children = (
-				8C25C677281294B00021A869 /* BridgeWebViewController.swift */,
 				8C25C6B128129F9C0021A869 /* Common */,
 				8C25C67D281294B00021A869 /* Plugin */,
+				8CEB87A52A17A6ED00216E86 /* images */,
+				8C25C677281294B00021A869 /* BridgeWebViewController.swift */,
 				8C25C645281284ED0021A869 /* WKBridgeKit.swift */,
 			);
 			path = WKBridgeKit;
@@ -118,10 +122,19 @@
 		8C25C6B128129F9C0021A869 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				8C52075A282CD31C001B22FD /* LocationHelper.swift */,
-				8C25C68F281294B00021A869 /* PreferenceHelper.swift */,
+				8C52075A282CD31C001B22FD /* WKLocationHelper.swift */,
+				8C25C68F281294B00021A869 /* WKPreferenceHelper.swift */,
+				8CEB87A22A17A5A700216E86 /* WKAlertViewController.swift */,
+				8CEB87A32A17A5A700216E86 /* WKAlertViewController.xib */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		8CEB87A52A17A6ED00216E86 /* images */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -198,9 +211,10 @@
 				8C25C69B281294B00021A869 /* PluginManager.swift in Sources */,
 				8C520759282CD1FA001B22FD /* GeoLocationPlugin.swift in Sources */,
 				8C217ED4282E178400F36874 /* AppPlugin.swift in Sources */,
-				8C52075B282CD31C001B22FD /* LocationHelper.swift in Sources */,
+				8C52075B282CD31C001B22FD /* WKLocationHelper.swift in Sources */,
 				8C25C69E281294B00021A869 /* PreferencePlugin.swift in Sources */,
-				8C25C6A5281294B00021A869 /* PreferenceHelper.swift in Sources */,
+				8CEB87A42A17A5A700216E86 /* WKAlertViewController.swift in Sources */,
+				8C25C6A5281294B00021A869 /* WKPreferenceHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
