@@ -33,7 +33,7 @@ open class PluginBase: NSObject {
     let service: String
     var viewController: BridgeWebViewController?
     
-    init(service: String, viewController: BridgeWebViewController) {
+    public init(service: String, viewController: BridgeWebViewController) {
         self.service = service
         self.viewController = viewController
     }
