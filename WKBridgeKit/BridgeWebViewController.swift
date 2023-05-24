@@ -227,7 +227,13 @@ extension BridgeWebViewController:  WKNavigationDelegate {
                   decisionHandler(.cancel)
                   return
               }
-        decisionHandler(.allow)
+        if navigationAction.request.url?.scheme == "tel" {
+            UIApplication.shared.openURL(navigationAction.request.url!)
+            decisionHandler(.cancel)
+        } else {
+            decisionHandler(.allow)
+        }
+        
     }
     
     open func webView(_ webView: WKWebView, decidePolicyFor navigationResponse: WKNavigationResponse, decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void) {
