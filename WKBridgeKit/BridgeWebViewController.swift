@@ -18,6 +18,7 @@ open class BridgeWebViewController : UIViewController {
     open var isReady = false // 웹뷰 준비 상태
     open var isPortrait = true   // 화면 방향 FLAG
     open var processPool: WKProcessPool?
+    open var isUseRefresh = false
     
     public let launchScreen = UIStoryboard(name: "LaunchScreen", bundle: nil).instantiateInitialViewController()
     
@@ -36,22 +37,24 @@ open class BridgeWebViewController : UIViewController {
         let webConfiguration = WKWebViewConfiguration()
         let contentController = WKUserContentController()
         contentController.add(self, name: "WKBridge")    // nbridge 등록
-
+        
         webConfiguration.processPool = processPool!
         webConfiguration.userContentController = contentController
         webConfiguration.preferences.setValue(true, forKey: "allowFileAccessFromFileURLs")
         webConfiguration.preferences.javaScriptCanOpenWindowsAutomatically = true
         webView = WKWebView(frame: view.frame, configuration: webConfiguration)
-
+        
         webView?.allowsLinkPreview = false
         webView?.scrollView.minimumZoomScale = 1.0
-        #if DEBUG
+#if DEBUG
         webView?.allowsBackForwardNavigationGestures = true
-        #endif
+#endif
         
-        let refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action: #selector(reloadWebView(_:)), for: .valueChanged)
-        webView?.scrollView.addSubview(refreshControl)
+        if isUseRefresh {
+            let refreshControl = UIRefreshControl()
+            refreshControl.addTarget(self, action: #selector(reloadWebView(_:)), for: .valueChanged)
+            webView?.scrollView.addSubview(refreshControl)
+        }
         
         view.addSubview(webView!)
         self.view.sendSubviewToBack(webView!)
