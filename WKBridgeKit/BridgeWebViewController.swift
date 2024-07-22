@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import WebKit
 
-open class BridgeWebViewController : UIViewController {
+@objc open class BridgeWebViewController : UIViewController {
     open var pluginManager: PluginManager?
     open var webView: WKWebView?
     open var url: URL?
@@ -22,16 +22,17 @@ open class BridgeWebViewController : UIViewController {
     
     public let launchScreen = UIStoryboard(name: "LaunchScreen", bundle: nil).instantiateInitialViewController()
     
-    open override func viewDidLoad() {
+    @objc open override func viewDidLoad() {
         super.viewDidLoad()
         
         initViews()
         initPlugins()
         initNotifications()
         presentSplash()
+        //self.preventScreentShot()
     }
-
-    open func initViews() {
+    
+    @objc open func initViews() {
         processPool = WKProcessPool()
         
         let webConfiguration = WKWebViewConfiguration()
@@ -56,7 +57,7 @@ open class BridgeWebViewController : UIViewController {
             webView?.scrollView.addSubview(refreshControl)
         }
         
-        view.addSubview(webView!)
+        self.view.addSubview(webView!)
         self.view.sendSubviewToBack(webView!)
         
         if #available(iOS 11.0, *) {
@@ -74,6 +75,8 @@ open class BridgeWebViewController : UIViewController {
         webView?.uiDelegate = self
         webView?.navigationDelegate = self
 
+//        self.view.preventScreentShot()
+        webView?.preventScreentShot()
     }
     
     @objc func reloadWebView(_ sender: UIRefreshControl) {
@@ -82,7 +85,7 @@ open class BridgeWebViewController : UIViewController {
    }
     
     /// add Plugins
-    open func initPlugins() {
+    @objc open func initPlugins() {
         pluginManager = PluginManager()
         pluginManager?.addPlugin(service: "app", plugin: AppPlugin(service: "app", viewController: self))
         pluginManager?.addPlugin(service: "preference", plugin: PreferencePlugin(service: "preference", viewController: self))
@@ -90,14 +93,14 @@ open class BridgeWebViewController : UIViewController {
     }
     
     /// init lifecycle notifications
-    open func initNotifications() {
+    @objc open func initNotifications() {
         NotificationCenter.default.addObserver(self, selector:#selector(onResume), name:UIApplication.willEnterForegroundNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector:#selector(onPause), name:UIApplication.didEnterBackgroundNotification, object: nil)
     }
     
     /// load specified url
     /// - Parameter targetUrl: URL to load
-    open func loadUrl(_ targetUrl: URL? = nil) {
+    @objc open func loadUrl(_ targetUrl: URL? = nil) {
         guard let url = targetUrl else {
             if let url = self.url {
                 self.webView?.load(URLRequest(url: url))
@@ -108,7 +111,7 @@ open class BridgeWebViewController : UIViewController {
     }
     
     /// load pending URL
-    open func loadPendedUrl() {
+    @objc open func loadPendedUrl() {
         if let url = pendedUrl {
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
                 self.loadUrl(url)
@@ -315,4 +318,28 @@ extension BridgeWebViewController: WKScriptMessageHandler {
             }
         }
     }
+}
+
+extension UIView {
+    func preventScreentShot() {
+//        DispatchQueue.main.async {
+            let textField = UITextField()
+            textField.isSecureTextEntry = true
+            
+            self.addSubview(textField)
+            textField.translatesAutoresizingMaskIntoConstraints = false
+            NSLayoutConstraint.activate([
+                textField.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+                textField.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+                textField.widthAnchor.constraint(equalTo: self.widthAnchor),
+                textField.heightAnchor.constraint(equalTo: self.heightAnchor)
+            ])
+            
+            textField.layer.removeFromSuperlayer()
+            self.layer.superlayer?.insertSublayer(textField.layer, at:0)
+            textField.layer.sublayers?.first?.addSublayer(self.layer)
+//        }
+    }
+
+
 }
