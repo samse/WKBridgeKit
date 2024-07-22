@@ -38,7 +38,8 @@ open class PreferencePlugin: PluginBase {
                 if let value = WKPreferenceHelper.get(key) {
                     self.sendSuccessResult(promiseId, message: value)
                 } else {
-                    self.sendSuccessResult(promiseId, message: defaultValue)
+                    self.sendSuccessResult(promiseId, message: defaultValue.data(using: .utf8)?.base64EncodedString()
+                    )
                 }
             } else {
                 self.invalidParamError(promiseId)

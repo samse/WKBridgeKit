@@ -10,7 +10,7 @@ import Foundation
 class WKPreferenceHelper  {
     static func get(_ key: String) -> String? {
         if let value = UserDefaults.standard.string(forKey: key) {
-            return value
+            return value.data(using: .utf8)?.base64EncodedString()
         }
         return nil
     }
