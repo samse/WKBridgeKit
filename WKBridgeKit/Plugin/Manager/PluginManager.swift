@@ -9,7 +9,15 @@ import Foundation
 
 open class PluginManager {
     
-    var plugins: Dictionary = [String : PluginBase]()
+    init() {
+        
+    }
+    
+    init(plugins: Dictionary<String, PluginBase>) {
+        self.plugins = plugins
+    }
+    
+    open var plugins: Dictionary = [String : PluginBase]()
     
     public func addPlugin(service: String, plugin: PluginBase) {
         plugins[service] = plugin
