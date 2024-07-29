@@ -7,25 +7,23 @@
 
 import Foundation
 
-open class PluginManager {
+@objc open class PluginManager: NSObject {
     
-    init() {
-        
+    public override init() {
     }
     
-    init(plugins: Dictionary<String, PluginBase>) {
+    public init(plugins: Dictionary<String, PluginBase>) {
         self.plugins = plugins
     }
     
-    open var plugins: Dictionary = [String : PluginBase]()
+    private var plugins: Dictionary = [String : PluginBase]()
     
-    public func addPlugin(service: String, plugin: PluginBase) {
+    open func addPlugin(service: String, plugin: PluginBase) {
         plugins[service] = plugin
     }
     
-    public func findPlugin(service: String) -> PluginBase? {
+    open func findPlugin(service: String) -> PluginBase? {
         return plugins[service];
     }
-    
-    
+
 }
