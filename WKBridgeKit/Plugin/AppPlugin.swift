@@ -10,13 +10,13 @@ import UIKit
 import WebKit
 import KeychainAccess
 
-class AppPlugin: PluginBase {
+@objc open class AppPlugin: PluginBase {
     let ACTION_APP_INFO     = "appInfo"
     let ACTION_DEVICE_INFO  = "deviceInfo"
     let ACTION_EXIT         = "exit"
     let ACTION_CLEARCACHE   = "clearCache"
     
-    override func execute(command: [String : Any]) {
+    open override func execute(command: [String : Any]) {
         let promiseId = command[PluginBase.PROMISEID] as? String
         guard let action = command[PluginBase.ACTION] as? String else {
             invalidActionError(promiseId)
@@ -36,7 +36,7 @@ class AppPlugin: PluginBase {
         }
     }
     
-    func appInfo(promiseId: String?) {
+    open func appInfo(promiseId: String?) {
         
         var displayName = getBundleString(withKey: "CFBundleDisplayName")
         if displayName.isEmpty {
@@ -50,7 +50,7 @@ class AppPlugin: PluginBase {
                                                "build" : build])
     }
     
-    func deviceInfo(promiseId: String?) {
+    open func deviceInfo(promiseId: String?) {
         let device = UIDevice.current
         let identifier = Locale.preferredLanguages.first
         
@@ -61,7 +61,7 @@ class AppPlugin: PluginBase {
                                                "language" : Locale(identifier: identifier!).languageCode?.lowercased() as Any])
     }
     
-    func clearCache(promiseId: String?) {
+    open func clearCache(promiseId: String?) {
         let websiteDataTypes = NSSet(array: [WKWebsiteDataTypeDiskCache, WKWebsiteDataTypeMemoryCache, WKWebsiteDataTypeCookies])
         WKWebsiteDataStore.default().removeData(ofTypes: websiteDataTypes as! Set, modifiedSince: Date(), completionHandler: {
             print("clear")
@@ -73,7 +73,7 @@ class AppPlugin: PluginBase {
     }
     
     /// 앱 종료
-    func exit(command: [String : Any]) {
+    open func exit(command: [String : Any]) {
         UIApplication.shared.perform(#selector(NSXPCConnection.suspend))
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             Darwin.exit(0)
