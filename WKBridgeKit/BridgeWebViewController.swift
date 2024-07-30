@@ -315,6 +315,7 @@ extension BridgeWebViewController: WKScriptMessageHandler {
                     }
                 }
             } catch let error as NSError {
+                print(error)
             }
         }
     }

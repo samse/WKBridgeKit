@@ -14,8 +14,9 @@ import KeychainAccess
     let ACTION_APP_INFO     = "appInfo"
     let ACTION_DEVICE_INFO  = "deviceInfo"
     let ACTION_EXIT         = "exit"
+    let ACTION_GO_SETTINGS  = "goSettings"
     let ACTION_CLEARCACHE   = "clearCache"
-    
+        
     open override func execute(command: [String : Any]) {
         let promiseId = command[PluginBase.PROMISEID] as? String
         guard let action = command[PluginBase.ACTION] as? String else {
@@ -29,6 +30,8 @@ import KeychainAccess
             deviceInfo(promiseId: promiseId)
         } else if action == ACTION_EXIT {
             exit(command: command)
+        } else if action == ACTION_GO_SETTINGS {
+            goSetting(command: command)
         } else if action == ACTION_CLEARCACHE {
             clearCache(promiseId: promiseId)
         } else {
@@ -70,6 +73,13 @@ import KeychainAccess
             URLCache.shared.memoryCapacity = 0
         })
         sendDefaultSuccessResult(promiseId)
+    }
+    
+    open func goSetting(command: [String: Any]) {
+        // 설정앱으로 이동, 설정관련 상세한 안내를 해주어야 함.
+        if let appSetting = URL(string: UIApplication.openSettingsURLString) {
+            UIApplication.shared.open(appSetting)
+        }
     }
     
     /// 앱 종료
