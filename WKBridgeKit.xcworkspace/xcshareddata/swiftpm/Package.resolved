@@ -1,4 +1,5 @@
 {
+  "originHash" : "eeca71d77817a4b9792eafde286edce6125a62e9deae4e2e6bd6854a4027699b",
   "pins" : [
     {
       "identity" : "keychainaccess",
@@ -6,7 +7,7 @@
       "location" : "https://github.com/kishikawakatsumi/KeychainAccess",
       "state" : {
         "branch" : "master",
-        "revision" : "6299daec1d74be12164fec090faf9ed14d0da9d6"
+        "revision" : "e0c7eebc5a4465a3c4680764f26b7a61f567cdaf"
       }
     },
     {
@@ -15,7 +16,7 @@
       "location" : "https://github.com/ashleymills/Reachability.swift.git",
       "state" : {
         "branch" : "master",
-        "revision" : "a81b7367f2c46875f29577e03a60c39cdfad0c8d"
+        "revision" : "7cbd73f46a7dfaeca079e18df7324c6de6d1834a"
       }
     },
     {
@@ -23,10 +24,10 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/SwiftyJSON/SwiftyJSON.git",
       "state" : {
-        "revision" : "b3dcd7dbd0d488e1a7077cb33b00f2083e382f07",
-        "version" : "5.0.1"
+        "revision" : "af76cf3ef710b6ca5f8c05f3a31307d44a3c5828",
+        "version" : "5.0.2"
       }
     }
   ],
-  "version" : 2
+  "version" : 3
 }
