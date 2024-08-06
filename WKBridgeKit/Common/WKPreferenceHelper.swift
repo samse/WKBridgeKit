@@ -7,19 +7,26 @@
 
 import Foundation
 
-class WKPreferenceHelper  {
-    static func get(_ key: String) -> String? {
+@objc open class WKPreferenceHelper  {
+    static open func get(_ key: String) -> String? {
         if let value = UserDefaults.standard.string(forKey: key) {
             return value.data(using: .utf8)?.base64EncodedString()
         }
         return nil
     }
-    
-    static func set(_ value: String, key: String) {
+
+    static open func get(_ key: String, defaultValue: String) -> String? {
+        if let value = UserDefaults.standard.string(forKey: key) {
+            return value.data(using: .utf8)?.base64EncodedString()
+        }
+        return defaultValue
+    }
+
+    static open func set(_ value: String, key: String) {
         UserDefaults.standard.set(nullToNil(value: value), forKey: key)
     }
         
-    static func remove(_ key: String) {
+    static open func remove(_ key: String) {
         UserDefaults.standard.removeObject(forKey: key)
     }
     
