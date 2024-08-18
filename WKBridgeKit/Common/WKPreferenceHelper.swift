@@ -10,20 +10,25 @@ import Foundation
 @objc open class WKPreferenceHelper: NSObject  {
     static public func get(_ key: String) -> String? {
         if let value = UserDefaults.standard.string(forKey: key) {
-            return value.data(using: .utf8)?.base64EncodedString()
+            if let encData = Data(base64Encoded: value) {
+                return String(data: encData, encoding: .utf8)
+            }
         }
         return nil
     }
 
     static public func get(_ key: String, defaultValue: String) -> String? {
-        if let value = UserDefaults.standard.string(forKey: key) {
-            return value.data(using: .utf8)?.base64EncodedString()
+        if let value = get(key) {
+            return value
         }
         return defaultValue
     }
 
-    static public func set(_ value: String, key: String) {
-        UserDefaults.standard.set(nullToNil(value: value), forKey: key)
+    static public func set(_ value: String?, key: String) {
+        if let val = value {
+            let encoded = val.data(using: .utf8)?.base64EncodedString()
+            UserDefaults.standard.set(encoded, forKey: key)
+        }
     }
         
     static public func remove(_ key: String) {
