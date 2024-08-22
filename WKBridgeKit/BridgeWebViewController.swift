@@ -188,7 +188,7 @@ extension BridgeWebViewController {
 
 //MARK : BridgeWebResultProtocol
 extension BridgeWebViewController {
-    func onBridgeReady() {
+    @objc open func onBridgeReady() {
         guard isReady == false else { return }
 
         isReady = true
