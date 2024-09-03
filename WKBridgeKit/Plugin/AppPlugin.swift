@@ -16,6 +16,7 @@ import KeychainAccess
     let ACTION_EXIT         = "exit"
     let ACTION_GO_SETTINGS  = "goSettings"
     let ACTION_CLEARCACHE   = "clearCache"
+    let ACTION_OPEN_BROWSER = "openBrowser"
         
     open override func execute(command: [String : Any]) {
         let promiseId = command[PluginBase.PROMISEID] as? String
@@ -34,6 +35,8 @@ import KeychainAccess
             goSetting(command: command)
         } else if action == ACTION_CLEARCACHE {
             clearCache(promiseId: promiseId)
+        } else if action == ACTION_OPEN_BROWSER {
+            openBrowser(command: command)
         } else {
             invalidActionError(promiseId)
         }
@@ -79,6 +82,20 @@ import KeychainAccess
         // 설정앱으로 이동, 설정관련 상세한 안내를 해주어야 함.
         if let appSetting = URL(string: UIApplication.openSettingsURLString) {
             UIApplication.shared.open(appSetting)
+        }
+    }
+    
+    open func openBrowser(command: [String: Any]) {
+        guard let url = URL(string: urlStr) else {
+            return
+        }
+        if #available(iOS 10.0, *) {
+            UIApplication.shared.open(url, options: [:]) { (result) in
+                handler?()
+            }
+        } else {
+            UIApplication.shared.openURL(url)
+            handler?()
         }
     }
     
