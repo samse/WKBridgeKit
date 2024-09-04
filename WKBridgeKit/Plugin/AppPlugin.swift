@@ -86,14 +86,12 @@ import KeychainAccess
     
     open func openBrowser(command: [String: Any]) {
         if let option = command[PluginBase.OPTION] as? [String : Any] {
-            if let url = option["url"] as? String {
+            if let urlStr = option["url"] as? String, let url = URL(string: urlStr) {
                 if #available(iOS 10.0, *) {
                     UIApplication.shared.open(url, options: [:]) { (result) in
-                        handler?()
                     }
                 } else {
                     UIApplication.shared.openURL(url)
-                    handler?()
                 }
             }
         }
