@@ -43,7 +43,6 @@ import KeychainAccess
     }
     
     open func appInfo(promiseId: String?) {
-        
         var displayName = getBundleString(withKey: "CFBundleDisplayName")
         if displayName.isEmpty {
             displayName = getBundleString(withKey: "CFBundleName")
@@ -86,16 +85,17 @@ import KeychainAccess
     }
     
     open func openBrowser(command: [String: Any]) {
-        guard let url = URL(string: urlStr) else {
-            return
-        }
-        if #available(iOS 10.0, *) {
-            UIApplication.shared.open(url, options: [:]) { (result) in
-                handler?()
+        if let option = command[PluginBase.OPTION] as? [String : Any] {
+            if let url = option["url"] as? String {
+                if #available(iOS 10.0, *) {
+                    UIApplication.shared.open(url, options: [:]) { (result) in
+                        handler?()
+                    }
+                } else {
+                    UIApplication.shared.openURL(url)
+                    handler?()
+                }
             }
-        } else {
-            UIApplication.shared.openURL(url)
-            handler?()
         }
     }
     
