@@ -230,7 +230,8 @@ extension BridgeWebViewController:  WKNavigationDelegate {
                   decisionHandler(.cancel)
                   return
               }
-        if navigationAction.request.url?.scheme == "tel" {
+        if navigationAction.request.url?.scheme == "tel" || navigationAction.request.url?.scheme == "sms" ||
+            navigationAction.request.url?.scheme == "mailto" {
             UIApplication.shared.openURL(navigationAction.request.url!)
             decisionHandler(.cancel)
         } else {
