@@ -230,14 +230,12 @@ extension BridgeWebViewController:  WKNavigationDelegate {
                   decisionHandler(.cancel)
                   return
               }
-        if navigationAction.request.url?.scheme == "tel" || navigationAction.request.url?.scheme == "sms" ||
-            navigationAction.request.url?.scheme == "mailto" {
-            UIApplication.shared.openURL(navigationAction.request.url!)
+        if (url.starts(with: "tel") || url.starts(with: "sms") || url.starts(with: "mailto")) {
+            UIApplication.shared.open(request.url!, options: [:], completionHandler: nil);
             decisionHandler(.cancel)
         } else {
             decisionHandler(.allow)
-        }
-        
+        }       
     }
     
     open func webView(_ webView: WKWebView, decidePolicyFor navigationResponse: WKNavigationResponse, decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void) {
